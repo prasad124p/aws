@@ -19,9 +19,9 @@ jobs:
           SSH_USER: ${{ secrets.EC2_USER }}
         run: |
           mkdir -p ~/.ssh/
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          echo -e "Host ec2\n\tHostName $SSH_HOST\n\tUser $SSH_USER\n\tIdentityFile ~/.ssh/deploy_key\n\tStrictHostKeyChecking no" > ~/.ssh/config
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/ 
+          chmod 600 ~/.ssh/aws_deploy_key
+          echo -e "Host ec2\n\tHostName $SSH_HOST\n\tUser $SSH_USER\n\tIdentityFile ~/.ssh/aws_deploy_key\n\tStrictHostKeyChecking no" > ~/.ssh/config
 
       - name: Install PM2 and setup directory
         run: |
